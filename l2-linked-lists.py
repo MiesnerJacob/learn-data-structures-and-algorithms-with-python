@@ -94,6 +94,23 @@ class LinkedList:
     node1.set_next_node(node2.get_next_node())
     node2.set_next_node(temp)
 
+def nth_last_node(linked_list, n):
+  nth_last_pointer = None
+  tail_pointer = linked_list.head_node
+  count = 1
+
+  while tail_pointer:
+    tail_pointer = tail_pointer.get_next_node()
+    count += 1
+
+    if count >= n + 1:
+      if nth_last_pointer is None:
+        nth_last_pointer = linked_list.head_node
+      else:
+        nth_last_pointer = nth_last_pointer.get_next_node()
+
+  return nth_last_pointer
+
 # Test LinkedList Implementation
 ll = LinkedList(5)
 ll.insert_beginning(70)
