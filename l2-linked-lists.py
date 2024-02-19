@@ -52,13 +52,13 @@ class LinkedList:
         else:
           current_node = next_node
   
-  def swap_nodes(self, input_list, val1, val2):
+  def swap_nodes(self, val1, val2):
     print(f'Swapping {val1} with {val2}')
 
     node1_prev = None
     node2_prev = None
-    node1 = input_list.head_node
-    node2 = input_list.head_node
+    node1 = self.head_node
+    node2 = self.head_node
 
     if val1 == val2:
         print("Elements are the same - no swap needed")
@@ -81,12 +81,12 @@ class LinkedList:
         return
 
     if node1_prev is None:
-        input_list.head_node = node2
+        self.head_node = node2
     else:
         node1_prev.set_next_node(node2)
 
     if node2_prev is None:
-        input_list.head_node = node1
+        self.head_node = node1
     else:
         node2_prev.set_next_node(node1)
 
@@ -94,26 +94,40 @@ class LinkedList:
     node1.set_next_node(node2.get_next_node())
     node2.set_next_node(temp)
 
-def nth_last_node(linked_list, n):
-  nth_last_pointer = None
-  tail_pointer = linked_list.head_node
-  count = 1
+  def nth_last_node(self, n):
+    nth_last_pointer = None
+    tail_pointer = self.head_node
+    count = 1
 
-  while tail_pointer:
-    tail_pointer = tail_pointer.get_next_node()
-    count += 1
+    while tail_pointer:
+        tail_pointer = tail_pointer.get_next_node()
+        count += 1
 
-    if count >= n + 1:
-      if nth_last_pointer is None:
-        nth_last_pointer = linked_list.head_node
-      else:
-        nth_last_pointer = nth_last_pointer.get_next_node()
+        if count >= n + 1:
+            if nth_last_pointer is None:
+                nth_last_pointer = self.head_node
+            else:
+                nth_last_pointer = nth_last_pointer.get_next_node()
 
-  return nth_last_pointer
+    return nth_last_pointer
 
 # Test LinkedList Implementation
 ll = LinkedList(5)
+
+# Test insert beginning
 ll.insert_beginning(70)
 ll.insert_beginning(5675)
 ll.insert_beginning(90)
 print(ll.stringify_list())
+
+# Test remove first node with value_match
+ll.remove_first_node_with_value_match(90)
+print(ll.stringify_list())
+
+# Test swap nodes
+ll.swap_nodes(5675, 70)
+print(ll.stringify_list())
+
+# Test nth last node
+nth_last_pointer = ll.nth_last_node(2)
+print(nth_last_pointer.value)
