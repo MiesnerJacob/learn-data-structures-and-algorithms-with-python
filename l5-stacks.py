@@ -48,3 +48,27 @@ class Stack:
   def is_empty(self):
     return self.size == 0
   
+
+# Test Stack class
+plate_stack = Stack(6)
+
+# Test push
+plate_stack.push("plate #1")
+plate_stack.push("plate #2")
+plate_stack.push("plate #3")
+plate_stack.push("plate #4")
+plate_stack.push("plate #5")
+plate_stack.push("plate #6")
+
+# Test peek
+print(plate_stack.peek())
+
+# Test pop
+plate_stack.pop()
+plate_stack.pop()
+plate_stack.pop()
+plate_stack.pop()
+plate_stack.pop()
+
+# Test peek
+print(plate_stack.peek())
