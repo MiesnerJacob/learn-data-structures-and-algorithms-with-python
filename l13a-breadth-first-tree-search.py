@@ -54,6 +54,8 @@ def breadth_first_search(root_node, goal_value):
   # return an empty path if goal not found
   return None
 
+
+# Build a tree
 sample_root_node = TreeNode("Home")
 docs = TreeNode("Documents")
 photos = TreeNode("Photos")
@@ -65,6 +67,7 @@ my_dog = TreeNode("Spot.jpg")
 docs.children = [my_wish, my_todo]
 photos.children = [my_cat, my_dog]
 
+# Test out our breadth first search algorithm
 print(sample_root_node)
 goal_path = breadth_first_search(sample_root_node, "Fluffy.jpg")
 if goal_path is None:
