@@ -11,9 +11,6 @@ class MaxHeap:
 
   def right_child_idx(self, idx):
     return idx * 2 + 1
-
-  def child_present(self, idx):
-    return self.left_child_idx(idx) <= self.count
   
   def get_larger_child_idx(self, idx):
     if self.right_child_idx(idx) > self.count:
@@ -28,6 +25,9 @@ class MaxHeap:
       else:
         print("Right child " + str(right_child) + " is larger than left child " + str(left_child))
         return self.right_child_idx(idx)
+
+  def child_present(self, idx):
+    return self.left_child_idx(idx) <= self.count
   
   def add(self, element):
     self.count += 1
@@ -74,7 +74,7 @@ class MaxHeap:
       idx = larger_child_idx
     print("HEAP RESTORED! {0}".format(self.heap_list))
     print("") 
-    
+
 
 def heapsort(lst):
   sort = []
