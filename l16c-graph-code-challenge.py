@@ -146,3 +146,29 @@ def dfs(graph, current_vertex, target_value, visited = None):
 	  
       if path:
         return path
+      
+
+landmark_string = ''
+for letter, landmark in landmark_choices.items():
+  landmark_string += "{0} - {1}\n".format(letter, landmark)
+
+def greet():
+  print("Hi there and welcome to SkyRoute!")
+  print("We'll help you find the shortest route between the following Vancouver landmarks:\n" + landmark_string)
+
+def set_start_and_end(start_point, end_point):
+  if start_point:
+    change_point = input("What would you like to change? You can enter 'o' for 'origin', 'd' for 'destination', or 'b' for 'both': ")
+  else:
+    start_point = get_start()
+
+def get_start():
+  pass
+
+def get_end():
+  pass
+
+def sky_route():
+  greet()
+
+sky_route()
